@@ -15,7 +15,7 @@ cv2.namedWindow('mask')
 cv2.moveWindow('mask', 400, 0)
 
 try:
-    with open('../../colors/colors.pkl', 'rb') as fh:
+    with open('colors/colors.pkl', 'rb') as fh:
         colors_lookup = pickle.load(fh)
 except:
     colors_lookup = np.zeros(0x1000000, dtype=np.uint8)
@@ -99,7 +99,7 @@ while True:
         print(col)
         p = int(col)
     elif k == ord('s'):
-        with open('../../colors/colors.pkl', 'wb') as fh:
+        with open('colors/colors.pkl', 'wb') as fh:
             pickle.dump(colors_lookup, fh, -1)
         print('saved')
     elif k == ord('e'):
