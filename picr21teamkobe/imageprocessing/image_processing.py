@@ -5,6 +5,7 @@ import numpy as np
 import image_processor
 from color import Color
 
+
 class ProcessFrames:
     def __init__(self, camera, target=Color.BLUE):
         self.processor = image_processor.ImageProcessor(camera.cam, debug=True)

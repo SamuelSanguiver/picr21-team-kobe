@@ -1,5 +1,4 @@
-import camera
-import segment
+import picr21teamkobe.imageprocessing.segment_module as segment
 import _pickle as pickle
 import numpy as np
 import cv2

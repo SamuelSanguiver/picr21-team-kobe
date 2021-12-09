@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import cv2
-import movement as drive
-import image_processing as ip
-import camera_config
+from picr21teamkobe.movement import movement as drive, thrower, xbox360
+from picr21teamkobe.imageprocessing import image_processing as ip, camera_config
 import math
 from enum import Enum
-import thrower
-import referee_client as client
+from picr21teamkobe.communication import referee_client as client
 import time
-import xbox360
-from color import Color
+from picr21teamkobe.imageprocessing.color import Color
 
 
 class RobotStateData:

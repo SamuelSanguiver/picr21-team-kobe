@@ -40,7 +40,7 @@ class Client:
                 new_robot_id = cmd["robot"]
                 try:
                     parser.set('robot', 'robot_id', repr(new_robot_id))
-                    with open('config.ini', "w") as f:
+                    with open('../../config.ini', "w") as f:
                         parser.write(f)
                     print(new_robot_id)
                     self.robot = new_robot_id

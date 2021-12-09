@@ -1,8 +1,7 @@
-import serialcomms
+from picr21teamkobe.communication import serialcomms
 import math
 import cv2
-import camera_config
-import image_processing as ip
+from picr21teamkobe.imageprocessing import camera_config
 
 wheel_angle_1 = 240
 wheel_angle_2 = 120

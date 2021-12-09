@@ -1,4 +1,4 @@
-import serialcomms
+from picr21teamkobe.communication import serialcomms
 import math
 
 ser = serialcomms.Connection('/dev/ttyACM0')

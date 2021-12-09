@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 import cv2
 import numpy as np
-import movement as drive
+from picr21teamkobe.movement import movement as drive
 from math import atan2
-import pyrealsense2
 
 from realsense_depth import *
 
