@@ -90,19 +90,22 @@ class ImageProcessor:
 
             size = cv2.contourArea(contour)
 
-            if size < 30: #or self.out_of_field:
+            if size < 15: #or self.out_of_field:
                 continue
 
             x, y, w, h = cv2.boundingRect(contour)
 
-            ys = np.repeat(np.arange(y + h, self.camera.rgb_height), 5)
-            xs = np.repeat(np.linspace(x + w / 2, self.camera.rgb_width / 2, num=len(ys) / 5), 5).astype('uint16')
+            ys = np.arange(y + h, self.camera.rgb_height)
+            xs = np.linspace(x + w / 2, self.camera.rgb_width / 2, num=len(ys), dtype=np.uint16)
 
             colors = self.fragmented[ys, xs]
             out_of_field = color_sampler.check_sequence(colors, 8, self.line_sequence)
+            #out_of_field = False
+            #print(out_of_field)
 
             if out_of_field:
                 self.out_of_field = out_of_field
+                continue
             else:
                 self.out_of_field = False
 

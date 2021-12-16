@@ -16,11 +16,12 @@ def order_exists(arr, order):
 
 def check_sequence(arr, noise, order):
     sequence_arr = filter_array(arr, noise)
+    #print(sequence_arr)
     order_exist = order_exists(sequence_arr, order)
     return len(order_exist) > 0
 
 
-@jit(nopython=True, cache=True)  # , fastmath = True)
+@jit(nopython=True, cache=True, fastmath = True)
 def filter_array(data, noise_level):
     data = np.split(data, np.where(np.diff(data[:]))[0] + 1)
     new_list = []

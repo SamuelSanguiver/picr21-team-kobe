@@ -26,16 +26,24 @@ class ProcessFrames:
         out_of_field = False
 
         out_of_field = processed.out_of_field
+        opponent_basket = None
+        opponent_basket_x = None
 
         if self.target == Color.BLUE:
             basket = processed.basket_b
+            opponent_basket = processed.basket_m
         else:
             basket = processed.basket_m
+            opponent_basket = processed.basket_b
+
 
         if basket.exists:
             basket_x_center = basket.x
             basket_y_center = basket.y
             basket_distance = basket.distance
+        
+        if opponent_basket.exists:
+            opponent_basket_x = opponent_basket.x
 
         floor_area = np.count_nonzero(processed.fragmented == int(Color.ORANGE))
 
@@ -47,6 +55,7 @@ class ProcessFrames:
             y = ball_array[0].y
 
         basket_size = basket.size
+        
 
         cv2.imshow("Debug", processed.debug_frame)
 
@@ -58,4 +67,5 @@ class ProcessFrames:
                 basket_distance,
                 floor_area,
                 out_of_field,
-                basket_size)
+                basket_size,
+                opponent_basket_x)
